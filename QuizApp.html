@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+<script src="QuizScript.js"> </script>
+</head>
+<body>
+	<nav class="navbar navbar-inverse bg-success">
+		<div class="container">
+			<a class="navbar-brand" href="#"> CUS Quiz Application </a>
+		</div>
+	</nav>
+
+	<div id="widget" style="margin:50px">
+
+	</div>
+</body>
+
+  <script id="intro" type="text/x-handlebars-template">
+    <div class="container">
+      <div class="row">
+          <div class="col">
+            <div>
+              <form id="nameForm">
+              <label for="name"> Enter your name: </label><br>
+              <input type="text" id="name" name="name"><br>
+              </form>
+              <span style="text-align:center font-size:30mm"> Which quiz do you want to take? </span>
+              <button class="btn btn-info float-right" data-action="{{this.action}}">{{this.action}}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </script>
+
+  <script id="question_true_false" type="text/x-handlebars-template">
+    <div class="container">
+      <div class="row">
+          <div class="col">
+            <div>
+              <span style="text-align:center"> {{this.questionText}}</span>
+              <button class="btn btn-primary pull-left" data-action="answer" data-answer="{{this.choices.[0]}}">{{this.choices.[0]}}</button>
+              <button class="btn btn-danger float-right" data-action="answer" data-answer="{{this.choices.[1]}}">{{this.choices.[1]}}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </script>
+
+  <script id="question_text_input" type="text/x-handlebars-template">
+    <div class="container">
+      <div class="row">
+          <div class="col">
+            <div>
+              <span style="text-align:center"> {{this.questionText}} </span>
+              <input type="text" id="{{this.answerFieldId}}" name="answer"><br><br>
+              <button class="btn btn-primary float-left" data-action="submit">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </script>
+
+  <script id="question_multiple_choice" type="text/x-handlebars-template">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div>
+                <span style="text-align:center"> {{this.questionText}} </span>
+                <button class="btn-btn-basic" data-action="answer" data-answer="{{this.choices.[0]}}">{{this.choices.[0]}}</button>
+                <button class="btn-btn-basic" data-action="answer" data-answer="{{this.choices.[1]}}">{{this.choices.[1]}}</button>
+                <button class="btn-btn-basic" data-action="answer" data-answer="{{this.choices.[2]}}">{{this.choices.[2]}}</button>
+                <button class="btn-btn-basic" data-action="answer" data-answer="{{this.choices.[3]}}">{{this.choices.[3]}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </script>
+  
+  <script id="question_fill_in_blank" type="text/x-handlebars-template">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div>
+                <span style="text-align:center"> {{this.questionText}} </span>
+                <input type="text" id="{{this.answerField}}" name="answer"<br>
+                <button class="btn-btn-success float-right" data-action="submit">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </script>
+
+  <script id="question_narrative" type="text/x-handlebars-template">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div>
+                <span style="text-align:left font-family:Times New Roman"> {{this.questionText}} </span>
+                <button class="btn-btn-basic" data-action="answer" data-answer="{{this.choices.[0]}}">{{this.choices[0]}}</button>
+                <button class="btn-btn-basic" data-action="answer" data-answer="{{this.choices.[1]}}">{{this.choices[1]}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </script>
+
+  <script id="feedback" type="text/x-handlebars-template">
+    <div class="container">
+      <div class="row">
+          <div class="col">
+            <div>
+              <span id="feedback_string" style="text-align:center">Sorry that's not correct. <br>
+              The correct answer was {{this.correctAnswer}}</span>
+              <button class="btn btn-danger float-right" data-action="got_it"> Got it</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </script>
+
+  <script id="end" type="text/x-handlebars-template">
+      <div class="container">
+        <div class="row">
+            <div class="col">
+              <div>
+                <span style="color:red"> Thank you for taking the quiz. Do you want to retake it or go back to the menu</span>
+                <button class="btn-btn-danger float-left" data-action="retake">Retake this quiz</button>
+                <button class="btn btn-primary float-right" data-action="return">Return to menu</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </script>
+</html>
