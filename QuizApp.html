@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -17,6 +17,12 @@
 		</div>
 	</nav>
 
+    <div id="scoreBoard" style="margin:25px">
+        <h3 id="score"> Score: 0 </h3>
+        <h3 id="timer"> Time: 00:00:00 </h3>
+        <h3 id="questionsAnswered"> Questions Answered: 0 </h3>
+    </div>
+
 	<div id="widget" style="margin:50px">
 
 	</div>
@@ -30,14 +36,18 @@
               <form id="nameForm">
               <label for="name"> Enter your name: </label><br>
               <input type="text" id="name" name="name"><br>
+              <input id="submit" type="submit">
               </form>
+              </div>
+              <div>
               <span style="text-align:center font-size:30mm"> Which quiz do you want to take? </span>
-              <button class="btn btn-info float-right" data-action="{{this.action}}">{{this.action}}</button>
-            </div>
+              <button class="btn btn-info float-right" data-action="{{this.action.[0]}}">{{this.action.[0]}}</button>
+              <button class="btn btn-info float-left" data-action-"{{this.action.[1]}}">{{this.action.[1]}}</button>
+              </div>
           </div>
         </div>
       </div>
-  </script>
+   </script>
 
   <script id="question_true_false" type="text/x-handlebars-template">
     <div class="container">
@@ -130,6 +140,7 @@
         <div class="row">
             <div class="col">
               <div>
+                <p id="Results"></p>
                 <span style="color:red"> Thank you for taking the quiz. Do you want to retake it or go back to the menu</span>
                 <button class="btn-btn-danger float-left" data-action="retake">Retake this quiz</button>
                 <button class="btn btn-primary float-right" data-action="return">Return to menu</button>
