@@ -168,6 +168,10 @@ function handleScore(appState) {
 
 function check_user_response(answer, model) {
 	if (answer == model.correctAnswer) {
+		setTimeout(() => {
+			const msg = "Correct!";
+			msg.style.display = 'none';
+		}, 1000);
 		return true;
 	}
 	else {
