@@ -10,14 +10,14 @@
 <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 <script src="QuizScript.js"> </script>
 </head>
-<body>
+<body style="background-color:lightblue">
 	<nav class="navbar navbar-inverse bg-success">
 		<div class="container">
 			<a class="navbar-brand" href="#"> CUS Quiz Application </a>
 		</div>
 	</nav>
 
-    <div id="scoreBoard" style="margin:25px">
+    <div id="scoreBoard" style="margin:25px; background-color:green">
         <h3 id="score"> Score: 0 </h3>
         <h3 id="timer"> Time: 00:00:00 </h3>
         <h3 id="questionsAnswered"> Questions Answered: 0 </h3>
@@ -35,14 +35,14 @@
             <div>
               <form id="nameForm">
               <label for="name"> Enter your name: </label><br>
-              <input type="text" id="name" name="name"><br>
-              <input id="submit" type="submit">
+              <input type="text" id="name" name="name" style="border: 3px solid blue"><br>
+              <input id="submit" type="submit" style="background-color:red; color:white">
               </form>
               </div>
               <div>
               <span style="text-align:center font-size:30mm"> Which quiz do you want to take? </span>
               <button class="btn btn-info float-right" data-action="{{this.action.[0]}}">{{this.action.[0]}}</button>
-              <button class="btn btn-info float-left" data-action-"{{this.action.[1]}}">{{this.action.[1]}}</button>
+              <button class="btn btn-info float-left" data-action="{{this.action.[1]}}">{{this.action.[1]}}</button>
               </div>
           </div>
         </div>
@@ -112,7 +112,7 @@
         <div class="row">
             <div class="col">
                 <div>
-                <span style="text-align:left font-family:Times New Roman"> {{this.questionText}} </span>
+                <span style="text-align:left; font-family:Times New Roman"> {{this.questionText}} </span>
                 <button class="btn-btn-basic" data-action="answer" data-answer="{{this.choices.[0]}}">{{this.choices[0]}}</button>
                 <button class="btn-btn-basic" data-action="answer" data-answer="{{this.choices.[1]}}">{{this.choices[1]}}</button>
                 </div>
