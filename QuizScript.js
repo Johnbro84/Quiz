@@ -7,7 +7,7 @@ const appState = {
 }
 
 var score = 0;
-//var time = 0;
+var time = 0;
 var questionsAnswered = 0;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		handleWidget(e)
 	}
 });
-/*
+
 var timer = setInterval(timeFrame, 1000);
 
 function timeFrame() {
@@ -41,9 +41,9 @@ function timeFrame() {
 	var hour = Math.floor(time / 3600);
 	var minute = Math.floor((time - hour * 3600) / 60);
 	var second = time - (hour * 3600 + minute * 60);
-	document.getElementById("#timer").innerHTML = hour + ":" + minute + ":" + second;
+	document.querySelector("#timer").innerHTML = hour + ":" + minute + ":" + second;
 }
-*/
+
 function getData() {
 	fetch('https://my-json-server.typicode.com/Johnbro84/QuizAPI/questionSet')
 	.then(response => response.json())
